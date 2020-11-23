@@ -1,0 +1,10 @@
+google-cloud-bigquery
+google-cloud-bigquery-datatransfer
+google-cloud-bigquery-storage
+google-cloud-dataproc
+google-cloud-storage
+google-cloud-spanner
+pyarrow
+numpy==1.19.3
+pandas
+pandas-gbq

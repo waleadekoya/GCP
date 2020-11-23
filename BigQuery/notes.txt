@@ -1,0 +1,73 @@
+1) Enterprise Data Warehouse ( schema-on-read, like Hive )
+
+2) SQL queries - with Google storage underneath
+
+3) Fully-managed - no server, no resource deployed, no ops
+
+4) Access through; Web UI, REST API, clients
+
+5) Has a Data Model viz:
+    a) Dataset = set of tables and views
+    b) Table must belong to dataset
+    c) Dataset must belong to a project
+    d) Tables contain records with rows and columns (fields). RDBMS-like
+    e) Nested and repeated fields are allowed
+	
+6) Table Schema can be specified at creation time or during initial load
+
+7) Table schema can be updated after creation
+
+8) Table Types:
+    - Native tables: BigQuery storage
+    - External tables (not managed/owned by BigQuery)
+        >> BigTable
+        >> Cloud Storage
+        >> Google Drive
+    - Views
+	
+9) Schema Auto Detection tool available while:
+	- loading data, or
+	- querying external data
+	BigQuery selects a random file in the dat source and
+	scans up to 100 rows of data to use as a representative sample
+	
+10) You load data into BigQuery via:
+	a) Batch loads (CSV, JSON, Avro, GCP Datastore backups)
+	b) Streaming loads (High volume event tracking logs, Realtime dashboards)
+	
+11) Data formats:
+	a) CSV 
+	b) JSON (newline delimited) 
+	c) Avro - open source data format that bundles serialized data 
+	   with the data's schema in the same file
+	d) GCP Datastore backups (converted into BigQuery's data types)	
+	
+12) Alternatives to loading:
+	a) Public datasets
+	b) Shared datasets
+	c) StackDriver log files (needs export - but direct)
+	
+13) BigQuery partitioning is dynamic - based on date pseudo-date column.
+	Hive has static partitioning - data in different directories e.g by state (CA, NY, TX,..)
+
+14) Querying and Viewing data:
+	a) Interactive queries
+	b) Batch queries
+	c) Views - queries stored in the metastore.
+		- views are logical - i.e. not materialised
+		- underlying query is executed each time view is accessed.
+		- cant export data from a view
+		- cant use JSON API to retrieve data
+		- cant mix standard and legacy SQL
+		- no user-defined functions allowed
+		- no wildcard table references allowed
+		- limit of 1000 authorised views per dataset
+	d) Partitioned tables
+15) Query plan execution is avallable via web UI.
+
+16) Slots - units of computational capacity needed to run queries 
+	(calculated based on query size, complexity) default slots sufficient.
+
+
+
+
